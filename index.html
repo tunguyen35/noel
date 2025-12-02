@@ -40,7 +40,6 @@
             position: relative; /* Đảm bảo đây là ngữ cảnh định vị cho các phần tử con Absolute */
             width: 100%;
             height: 60vh; 
-            /* Màu nền bầu trời/đất liền chuyển giao */
             background: linear-gradient(to top, #8A0000 0%, #000033 100%); 
         }
 
@@ -58,7 +57,7 @@
             position: absolute;
             right: 5%; 
             bottom: 0;
-            width: 200px; /* Nhỏ hơn một chút để tạo chiều sâu */
+            width: 200px; 
             z-index: 10;
         }
 
@@ -79,6 +78,51 @@
             z-index: 15;
         }
 
+        /* ĐÃ CHỈNH SỬA: CĂN GIỮA VÀ THU NHỎ PHẦN SANTA */
+        .box-santa {
+            width: 100%;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 50px 0;
+        }
+
+        .santa-container {
+            width: 90%; 
+            max-width: 1000px; /* Thu nhỏ tổng thể và giới hạn kích thước */
+            display: flex;
+            justify-content: space-around; /* Căn đều 3 khối chính */
+            align-items: flex-end; 
+            flex-wrap: wrap; 
+        }
+
+        /* Thu nhỏ kích thước các khối ảnh chính */
+        .santa1 {
+            width: 30%; /* Chiếm khoảng 30% trên desktop */
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .box-reindeer {
+            width: 30%;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .box-noel-gif {
+            width: 30%;
+            min-width: 200px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+        }
+
+        .noel-gif1, .noel-gift2 {
+            width: 45%; /* Chia đều cho 2 ảnh gif */
+        }
+        /* KẾT THÚC CHỈNH SỬA PHẦN SANTA */
+
+
         /* Điều chỉnh chung cho chữ chúc mừng */
         .text2 {
             color: #fff;
@@ -92,7 +136,7 @@
             font-size: 1.2em; 
         }
         
-        /* SNOWFLAKE CSS */
+        /* SNOWFLAKE CSS (Không thay đổi) */
         @-webkit-keyframes snowflakes-fall {
             0% {top:-10%}
             100% {top:100%}
@@ -194,10 +238,16 @@
                 right: 0;
             }
             
-            .image-santa, .box-reindeer {
+            /* ĐÃ CHỈNH SỬA: Responsive cho Santa/Tuần lộc */
+            .santa-container {
+                flex-direction: column; /* Xếp chồng lên nhau trên mobile */
+                align-items: center;
+            }
+            
+            .santa1, .box-reindeer, .box-noel-gif {
                 width: 100%;
-                max-width: 250px; 
-                margin-bottom: 20px;
+                max-width: 300px;
+                margin-bottom: 30px;
             }
         }
     </style>
@@ -278,3 +328,5 @@
 </div>
 </body>
 </html>
+
+                    
