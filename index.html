@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="image/noel1.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Noel 2023!</title>
+
+    <style>
+        /* CSS GỘP VÀ TỐI ƯU RESPONSIVE & NỀN ĐỎ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Rất quan trọng cho responsive */
+        }
+
+        body {
+            background-color: #8A0000; /* Màu đỏ đậm Giáng Sinh */
+            min-height: 100vh;
+            overflow-x: hidden; /* Ngăn cuộn ngang */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Đảm bảo tất cả hình ảnh có tính responsive */
+        img {
+            max-width: 100%; /* Đảm bảo hình ảnh không bị tràn */
+            height: auto; /* Giữ tỷ lệ khung hình */
+            display: block;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        /* Phần nền (Background) - Ngữ cảnh định vị chính */
+        .bgr-container {
+            position: relative; /* Đảm bảo đây là ngữ cảnh định vị cho các phần tử con Absolute */
+            width: 100%;
+            height: 60vh; 
+            /* Màu nền bầu trời/đất liền chuyển giao */
+            background: linear-gradient(to top, #8A0000 0%, #000033 100%); 
+        }
+
+        /* Định vị Cây Thông Thứ Nhất (Bên trái) */
+        .christmas-tree {
+            position: absolute;
+            left: 5%;
+            bottom: 0;
+            width: 250px; 
+            z-index: 10;
+        }
+
+        /* Cây thông thứ hai (Bên phải - Cân bằng bố cục) */
+        .christmas-tree-2 { 
+            position: absolute;
+            right: 5%; 
+            bottom: 0;
+            width: 200px; /* Nhỏ hơn một chút để tạo chiều sâu */
+            z-index: 10;
+        }
+
+        .moon {
+            position: absolute;
+            top: 5%;
+            right: 10%;
+            width: 80px;
+            z-index: 10;
+        }
+
+        .house {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 350px; 
+            z-index: 15;
+        }
+
+        /* Điều chỉnh chung cho chữ chúc mừng */
+        .text2 {
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2rem;
+        }
+
+        #text2, #text3 {
+            margin-bottom: 15px;
+            font-size: 1.2em; 
+        }
+        
+        /* SNOWFLAKE CSS */
+        @-webkit-keyframes snowflakes-fall {
+            0% {top:-10%}
+            100% {top:100%}
+        }
+        @-webkit-keyframes snowflakes-shake {
+            0%,100% {-webkit-transform:translateX(0);transform:translateX(0)}
+            50% {-webkit-transform:translateX(80px);transform:translateX(80px)}
+        }
+        @keyframes snowflakes-fall {
+            0% {top:-10%}
+            100% {top:100%}
+        }
+        @keyframes snowflakes-shake {
+            0%,100%{ transform:translateX(0)}
+            50% {transform:translateX(80px)}
+        }
+        .snowflake {
+            color: #fff;
+            font-size: 1em;
+            font-family: Arial, sans-serif;
+            text-shadow: 0 0 5px #000;
+            position:fixed;
+            top:-10%;
+            z-index:9999;
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none;
+            cursor:default;
+            -webkit-animation-name:snowflakes-fall,snowflakes-shake;
+            -webkit-animation-duration:10s,3s;
+            -webkit-animation-timing-function:linear,ease-in-out;
+            -webkit-animation-iteration-count:infinite,infinite;
+            -webkit-animation-play-state:running,running;
+            animation-name:snowflakes-fall,snowflakes-shake;
+            animation-duration:10s,3s;
+            animation-timing-function:linear,ease-in-out;
+            animation-iteration-count:infinite,infinite;
+            animation-play-state:running,running;
+        }
+        .snowflake:nth-of-type(0){
+            left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s
+        }
+        .snowflake:nth-of-type(1){
+            left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s
+        }
+        .snowflake:nth-of-type(2){
+            left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s
+        }
+        .snowflake:nth-of-type(3){
+            left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s
+        }
+        .snowflake:nth-of-type(4){
+            left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s
+        }
+        .snowflake:nth-of-type(5){
+            left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s
+        }
+        .snowflake:nth-of-type(6){
+            left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s
+        }
+        .snowflake:nth-of-type(7){
+            left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s
+        }
+        .snowflake:nth-of-type(8){
+            left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s
+        }
+        .snowflake:nth-of-type(9){
+            left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s
+        }
+        .snowflake:nth-of-type(10){
+            left:25%;-webkit-animation-delay:2s,0s;animation-delay:2s,0s
+        }
+        .snowflake:nth-of-type(11){
+            left:65%;-webkit-animation-delay:4s,2.5s;animation-delay:4s,2.5s
+        }
+
+        /* MEDIA QUERIES - Tối ưu hóa cho màn hình nhỏ (Mobile) */
+        @media (max-width: 768px) {
+            #text2, #text3 {
+                font-size: 1em; 
+            }
+
+            .bgr-container {
+                height: 40vh; 
+            }
+
+            .house {
+                width: 200px;
+            }
+
+            .christmas-tree {
+                width: 150px; 
+                left: 0;
+            }
+            
+            .christmas-tree-2 {
+                width: 120px; 
+                right: 0;
+            }
+            
+            .image-santa, .box-reindeer {
+                width: 100%;
+                max-width: 250px; 
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="container">
+            <div class="bgr-container">
+                <div class="moon">
+                    <img src="image/moon.png" alt="">
+                </div>
+                <div class="christmas-tree">
+                    <img src="image/christmas-tree.png" alt="">
+                </div>
+                <div class="christmas-tree-2"> 
+                    <img src="image/christmas-tree.png" alt="">
+                </div>
+                <div class="box-text-noel">
+                    <div class="text-noel">
+                        <img src="image/text.png" alt="">
+                    </div>
+                    <span></span>
+                </div>
+                <div class="house">
+                    <img src="image/house.png" alt="">
+                </div>
+            </div>
+            <section>
+                <div class="box-santa">
+                    <div class="santa-container">
+                        <div class="santa1">
+                            <div class="image-santa">
+                                <img src="image/santa.png" alt="">
+                            </div>
+                            <div class="image-santa-hand">
+                                <img src="image/santa-hand.png" alt="">
+                            </div>
+                        </div>
+                        <div class="box-reindeer">
+                            <div class="reindeer">
+                                <img src="https://lh3.googleusercontent.com/d/1W9FVw_V_fr9Lgi-iYkk2G3sPzgo9xJre" alt="">
+                            </div>
+                        </div>
+                        <div class="box-noel-gif">
+                            <div class="noel-gif1">
+                   <img src="https://lh3.googleusercontent.com/d/1DbbkbGXH6sxfXWIusj0fLXmJ6oFNr5At" alt="">
+                            </div>
+                            <div class="noel-gift2">
+                                <img src="https://lh3.googleusercontent.com/d/1us9CcC4eAAwS5WS7n1smKPU4jyeSnZWF" alt="">
+                            </div>
+                        </div>
+                        <div class="box-gift">
+                           
+ <div class="text2">
+    <h2 id="text2">Chúc mừng Giáng Sinh! Mùa lễ này, hãy bên nhau chia sẻ niềm vui và tình thương. Chúng ta có thể tận hưởng những khoảnh khắc ấm áp và ý nghĩa bên gia đình và bạn bè. Hy vọng rằng mỗi chiếc đèn trang trí và hương thơm của cây thông sẽ mang lại không khí lễ hội, làm cho mỗi khoảnh khắc trở nên đặc biệt.
+    </h2>
+    <h2 id="text3">Chúc bạn và những người yêu quý có một mùa Giáng Sinh tràn ngập tình thương và hạnh phúc. Mời bạn tận hưởng những giây phút ấm áp, để những ước mơ thành sự thật và tình bạn mãi mãi trường tồn. Mừng Giáng Sinh và Chúc năm mới đầy niềm vui và thành công!
+    </h2>
+
+    <div class="snowflakes" aria-hidden="true">
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+    </div>
+    
+</div>
+</div>
+</section>
+</div>
+</body>
+</html>
